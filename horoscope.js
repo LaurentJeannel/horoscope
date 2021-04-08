@@ -31,7 +31,7 @@ function scrap(signe){
  var url='https://www.horoscope.fr/horoscopes/horoscope_'+signe+'.html'
    request({ 'uri' : url , 'headers':{'Accept-Charset': 'utf-8'} }, function (err, response, body){
     		
-    		var $ = require('cheerio').load(body, { xmlMode: true, ignoreWhitespace: false, lowerCaseTags: false });
+    		var $ = require('cheerio').load(body, { xmlMode: false, ignoreWhitespace: false, lowerCaseTags: false });
    		
    			var a= $('div.text-wrapper:nth-child(1) > p:nth-child(3)').text()
    			console.log(a)
