@@ -28,12 +28,12 @@ function scrap(signe){
 
 
  request = require('request'); cheerio = require('cheerio');
- var url='https://www.horoscope.fr/horoscopes/horoscope_'+signe+'.html'
+ var url='https://www.horoscope.fr/horoscopes/aujourdhui/'+signe
    request({ 'uri' : url , 'headers':{'Accept-Charset': 'utf-8'} }, function (err, response, body){
     		
     		var $ = require('cheerio').load(body, { xmlMode: false, ignoreWhitespace: false, lowerCaseTags: false });
    		
-   			var a= $('div.text-wrapper:nth-child(1) > p:nth-child(3)').text()
+   			var a= $('#__next > div > div.MainLayout_children__BSrlk > div.DailyHoroscopeContent_dailyHoroscopeContent__QrsY9.DailyHoroscopeContent_horoscopeContent__jI_SZ > div:nth-child(3) > div > section').text()
    			console.log(a)
 			var b=''
 
